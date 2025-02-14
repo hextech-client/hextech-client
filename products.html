@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hextech Client - Продукты </title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .discount-price {
+            color: white;
+            font-weight: bold;
+        }
+
+        .discount-text {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+        }
+        .logo img {
+            height: 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+        .card {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .card img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .btn-buy {
+            display: block;
+            margin-top: 10px;
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                <img src="img/favicon.png" alt="logo" style="height: 65px; margin-right: 10px;">
+                Hextech Client
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="#">Поддержка</a></li>
+                <li><a href="#">Скачать лаунчер</a></li>
+                <li><a href="products.html">Купить</a></li>
+                <li><a href="#" class="btn">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <img src="https://i.postimg.cc/jS0XbwwS/1-mouth.png" alt="Месячная подписка">
+            <h3>Месячная подписка</h3>
+            <p>Клиент на 30 дней</p>
+            <p>Цена: 349 ₽</p>
+            <a href="#" class="btn-buy">Оплатить</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/BbFmTxLR/1-year.png" alt="Годовая подписка">
+            <h3>Годовая подписка</h3>
+            <p>Клиент на 365 дней</p>
+            <p>Цена: <s>610 ₽</s> <span class="discount-price">549 Р</span> (<span class="discount-text">Скидка 10%</span>)</p> 
+            <a href="#" class="btn-buy">Оплатить</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/wT6NcXmJ/lifetime.png" alt="Навсегда">
+            <h3>Навсегда</h3>
+            <p>Клиент навсегда</p>
+            <p>Цена: <s>865 Р</s> <span class="discount-price">649 Р</span> (<span class="discount-text">Скидка 25%</span>)</p> 
+            <a href="#" class="btn-buy">Оплатить</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/g2t30xrh/hwid.png" alt="HWID Сброс">
+            <h3>Сброс HWID</h3>
+            <p>Сброс привязки к компьютеру</p>
+            <p>Цена: 299 ₽</p>
+            <a href="#" class="btn-buy">Оплатить</a>
+        </div>
+        <div class="card">
+            <img src="https://i.postimg.cc/9Q0qsc1Q/alpha.png" alt="ALPHA 1.16.5">
+            <h3>ALPHA 1.16.5</h3>
+            <p>Доступ к ALPHA-версии</p>
+            <p>Цена: 1049 ₽</p>
+            <a href="#" class="btn-buy">Оплатить</a>
+        </div>
+    </div>
+</body>
+</html>
