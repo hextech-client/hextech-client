@@ -17,18 +17,20 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: #111;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        background-color: #111;
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
         }
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #000;
+        position: relative; /* Ensure the header is positioned for z-index to work */
+        z-index: 1001; /* Higher than the notification */
         }
         .logo {
             font-size: 24px;
@@ -200,6 +202,44 @@
     user-select: none;
 }
 
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 0; /* Start at the top of the page */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1000; /* Lower than the header */
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.notification.show {
+    top: 115px; /* Slide down to just below the header (adjust based on header height) */
+    opacity: 1;
+}
+
+.warning-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+}
+
 </style>
 </head>
 <link rel="icon" type="image/x-icon" href="img/favicon.ico">
@@ -254,6 +294,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
             updateScrollbar();
         });
+
+        window.onload = function() {
+    setTimeout(() => {
+        let preloader = document.getElementById('preloader');
+        preloader.style.opacity = '0';
+
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            // Show the notification after the preloader is hidden
+            let notification = document.getElementById('notification');
+            notification.classList.add('show');
+
+            // Hide the notification after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000); // 5000 milliseconds = 5 seconds
+        }, 1000);
+    }, 1000);
+};
+
 </script>
 <script src="main.js"></script>
 <body>
@@ -273,11 +333,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="#">Поддержка</a></li>
                 <li><a href="#">Скачать лаунчер</a></li>
                 <li><a href="products.html">Купить</a></li>
-                <li><a href="#" class="btn">Личный кабинет</a></li>
+                <li><a href="cabinet.html" class="btn">Личный кабинет</a></li>
             </ul>
         </nav>
     </header>
-    
+
+    <div id="notification" class="notification">
+        <span class="warning-icon">!</span>
+        Внимание! Если у вас возникают проблемы с сайтом, то воспользуйтесь VPN или прокси
+    </div>
+
     <section class="about" id="home">
         <div class="content">
             <h1 class="shadow-text">О нашем клиенте</h1>
